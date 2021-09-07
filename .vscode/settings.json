@@ -14,5 +14,6 @@
   "C_Cpp_Runner.excludeSearch": [],
   "C_Cpp_Runner.enableWarnings": true,
   "C_Cpp_Runner.warningsAsError": false,
-  "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  "C_Cpp.errorSquiggles": "Disabled"
 }
