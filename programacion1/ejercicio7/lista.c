@@ -14,14 +14,14 @@ typedef struct nodo
 
 // añadir un elemento a la lista
 
-void addNodo(nodo *p, int val)
+void addNodo(nodo **p, int val)
 {
 
     struct nodo *aux;
     aux = malloc(sizeof(nodo));
     aux->value = val;
-    aux->next = p;
-    p = aux;
+    aux->next = *p;
+    *p = aux;
 }
 
 void printNodo(nodo *p)
@@ -29,7 +29,7 @@ void printNodo(nodo *p)
 
     nodo *aux;
     aux = p;
-    while (aux->next != NULL)
+    while (aux != NULL)
     {
 
         printf("%d\n", aux->value);
@@ -44,7 +44,7 @@ int main(int argc, char const *argv[])
     // creamos la lista a partir del vector
     for (int i = 0; i < 4; i++)
     {
-        addNodo(p, buffer_test[i]);
+        addNodo(&p, buffer_test[i]);
     }
 
     //imprimimos la lista en pantalla
