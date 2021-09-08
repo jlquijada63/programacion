@@ -6,6 +6,7 @@
 #include "funciones.h"
 
 
+
 /* Funcion para determinar si un numero es divisor de otro */
 boolean esDivisor(int dividendo, int divisor)
 {
@@ -41,15 +42,14 @@ int mulVector(int *v, int v_size)
 
 void parsernumber(int n, int *vector)
 {
+    char aux[VECTOR_SIZE+1];
     int i = 0;
-    while (n >= BASE)
-    {
-        vector[i] = n % BASE;
-        n = n / BASE;
+    sprintf(aux,"%d", n);   // guardamos el entero en una cadena de texto
+    while (aux[i] != '\0'){
+        vector[i] = (int)aux[i];    // convertimos el array de caracteres en un array de enteros
         i++;
     }
-
-    vector[i] = n;
+    
 }
 
 /* funcion que determina si se cumplen las condiciones del problema */
