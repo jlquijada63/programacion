@@ -17,9 +17,9 @@ typedef struct nodo
 void addNodo(nodo **p, int val)
 {
 
-    nodo *aux;  //puntero a una struct tipo nodo
+    nodo *aux;                  //puntero a una struct tipo nodo
     aux = malloc(sizeof(nodo)); // crea objeto y lo aloja en el heap
-    aux->value = val; // asigna el valor
+    aux->value = val;           // asigna el valor
     aux->next = *p;
     *p = aux;
 }
@@ -27,20 +27,21 @@ void addNodo(nodo **p, int val)
 void printNodo(nodo *p)
 {
 
-    nodo *cursor;  // puntero que nos va a servir para recorrer la lista
-    cursor = p;    // el cursor apunta al primer elemento de la lista 
-    do{
+    nodo *cursor; // puntero que nos va a servir para recorrer la lista
+    cursor = p;   // el cursor apunta al primer elemento de la lista
+    do
+    {
 
         printf("%d\n", cursor->value);
         cursor = cursor->next;
-    }while (cursor->next != NULL);
+    } while (cursor->next != NULL);
     printf("%d\n", cursor->value);
 }
 
 int main(int argc, char const *argv[])
 {
     int buffer_test[4] = {4, 6, 8, 2}; // vector de prueba
-    nodo *p = NULL; // definimos una lista vacia
+    nodo *p = NULL;                    // definimos una lista vacia
 
     // agregamos los elementos del vector a la lista
     for (int i = 0; i < 4; i++)
