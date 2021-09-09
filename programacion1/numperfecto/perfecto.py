@@ -4,7 +4,7 @@ numero mismo.
 Utilizando esta funcion realizar un programa que escriba a lista de los numeros "perfectos" hasta uno dado, introducido
 como dato del programa"""
 
-from sys import argv
+import argparse
 import pprint
 
 # funcion que devuelve los divisores de un numero que se le pasa como parametro
@@ -23,6 +23,9 @@ def esPerfecto(n):
 
 if __name__ == "__main__":
 
-    target = int(argv[1])
-    lista_perfectos = [e for e in range(target) if esPerfecto(e)]
+    parser = argparse.ArgumentParser(description="introducir numero")
+    parser.add_argument(dest="target", help="target number", required=True, type=int)
+    params = parser.parse_args()
+
+    lista_perfectos = [e for e in range(params.target) if esPerfecto(e)]
     pprint.pprint(lista_perfectos)
